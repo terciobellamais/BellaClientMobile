@@ -1,0 +1,98 @@
+{
+  "best_practices": [
+    {
+      "name": "Uso de Ícones SVG Personalizados",
+      "description": "Converter arquivos SVG em componentes React Native SVG com props customizáveis e organizar em diretório específico",
+      "rationale": "React Native não suporta importação direta de SVGs. Componentes SVG permitem customização e reutilização consistente",
+      "examples": [
+        "Criar componente em components/icons/ com interface para props",
+        "Usar react-native-svg com componentes Svg e Path",
+        "Exportar através de arquivo index.tsx para facilitar importações",
+        "Usar como JSX: <HomeIcon width={24} height={24} fill='#000' />"
+      ],
+      "anti_patterns": [
+        "Importar SVG diretamente como import Icon from './icon.svg'",
+        "Não tipificar props do componente SVG",
+        "Hardcodar valores de cor, tamanho sem permitir customização"
+      ]
+    },
+    {
+      "name": "Configuração de Roteamento no Expo Router",
+      "description": "Sempre criar um arquivo index.tsx na raiz do app para definir a rota inicial e configurar adequadamente o Stack no _layout.tsx",
+      "rationale": "O Expo Router funciona baseado em convenções de arquivos, sendo essencial ter uma estrutura clara e consistente",
+      "examples": [
+        "app/index.tsx com Redirect para rota inicial",
+        "app/_layout.tsx com Stack.Screen configurado corretamente"
+      ],
+      "anti_patterns": [
+        "Usar initialRouteName sem arquivo index.tsx na raiz",
+        "Configurar rotas que não correspondem à estrutura de arquivos"
+      ]
+    },
+    {
+      "name": "Debugging de Roteamento",
+      "description": "Sempre limpar o cache do Expo quando houver problemas de roteamento ou navegação",
+      "rationale": "O cache pode manter configurações antigas que causam conflitos após mudanças na estrutura de roteamento",
+      "examples": [
+        "npx expo start --clear",
+        "Verificar estrutura de arquivos vs configuração de rotas"
+      ],
+      "anti_patterns": [
+        "Ignorar problemas de cache",
+        "Não verificar correspondência entre arquivos e rotas"
+      ]
+    },
+    {
+      "name": "Gerenciamento de Estado Global com React Context",
+      "description": "Para estado que precisa ser compartilhado entre múltiplos componentes e telas, usar React Context API com provider no nível raiz da aplicação",
+      "rationale": "Context API fornece uma forma limpa e eficiente de compartilhar estado sem prop drilling, mantendo a performance e organização do código",
+      "examples": [
+        "Criar Context com createContext<Type | undefined>(undefined)",
+        "Implementar Provider com estado e funções de manipulação",
+        "Criar hook personalizado com useContext e validação",
+        "Posicionar Provider no _layout.tsx para acesso global",
+        "Exportar tanto o Provider quanto o hook do mesmo arquivo"
+      ],
+      "anti_patterns": [
+        "Usar useState local quando o estado precisa ser global",
+        "Múltiplas instâncias do mesmo hook em componentes diferentes",
+        "Provider muito baixo na árvore de componentes",
+        "Não validar se o hook está sendo usado dentro do Provider",
+        "Context sem tipagem TypeScript adequada"
+      ]
+    },
+    {
+      "name": "Configuração de Routing no Expo Router",
+      "description": "Usar arquivo index.tsx na raiz do app para redirecionar para tela inicial",
+      "rationale": "Evita erro 404 e garante navegação correta",
+      "examples": ["app/index.tsx com <Redirect href='/welcome' />"],
+      "anti_patterns": ["Deixar app sem rota inicial definida"]
+    },
+    {
+      "name": "Gerenciamento de Dependências Expo",
+      "description": "Usar versões compatíveis e limpar cache regularmente",
+      "rationale": "Evita conflitos e erros de build",
+      "examples": ["npx expo install --fix", "npx expo start --clear"],
+      "anti_patterns": [
+        "Usar yarn add diretamente sem verificar compatibilidade"
+      ]
+    },
+    {
+      "name": "Configuração Google Auth para Expo",
+      "description": "Configurar corretamente URIs de redirecionamento no Google Cloud Console para diferentes ambientes",
+      "rationale": "Garante funcionamento da autenticação OAuth em desenvolvimento e produção",
+      "examples": [
+        "URIs de desenvolvimento: exp://localhost:8082, exp://IP:porta",
+        "URIs de produção: com.bellaclient.app://",
+        "Bundle IDs: com.bellaclient.app, host.exp.Exponent",
+        "SHA-1 fingerprint para Android",
+        "Logs detalhados para debug"
+      ],
+      "anti_patterns": [
+        "Usar apenas localhost sem IP real",
+        "Esquecer de adicionar host.exp.Exponent para Expo Go",
+        "Não configurar scheme no app.json"
+      ]
+    }
+  ]
+}

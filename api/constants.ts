@@ -1,0 +1,1 @@
+export const BELLA_TOKEN = '@bella/token';

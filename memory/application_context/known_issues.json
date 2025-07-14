@@ -1,0 +1,46 @@
+{
+  "known_issues": [
+    {
+      "description": "Tela inicial mostrando '404 - This screen does not exist' em vez da tela welcome",
+      "affected_components": ["app/_layout.tsx", "Expo Router navigation"],
+      "workaround": "Criar arquivo index.tsx na raiz do app com Redirect para /welcome e limpar cache com 'npx expo start --clear'",
+      "priority": "High - Resolvido"
+    },
+    {
+      "description": "Erro 'RNGoogleSignin' could not be found no iOS - módulo nativo não registrado",
+      "affected_components": [
+        "hooks/useAuthGoogle.tsx",
+        "iOS configuration",
+        "Google Sign-in"
+      ],
+      "workaround": "Configurar URL scheme no Info.plist, reinstalar pods com 'rm Podfile.lock && pod install --repo-update'",
+      "priority": "High - Resolvido"
+    },
+    {
+      "description": "Rotas sem default export causando warnings no Expo Router",
+      "affected_components": ["app/index.tsx", "Expo Router navigation"],
+      "workaround": "Adicionar return <View /> em componentes que não retornam JSX",
+      "priority": "Medium - Resolvido"
+    },
+    {
+      "description": "Erro 'Safari can't open the page because the network connection was lost' na autenticação Google OAuth",
+      "affected_components": [
+        "hooks/useAuthGoogle.tsx",
+        "app.json",
+        "OAuth redirect flow"
+      ],
+      "workaround": "Configurar URL scheme correto 'com.bellaclient.app' no app.json, adicionar plugin expo-auth-session, configurar redirect URI com scheme personalizado, implementar tratamento completo de response OAuth",
+      "priority": "High - Resolvido"
+    },
+    {
+      "description": "Plugin expo-auth-session causando erro 'Unexpected token export' ao executar yarn ios",
+      "affected_components": [
+        "app.json",
+        "expo-auth-session plugin configuration",
+        "Build process"
+      ],
+      "workaround": "Remover plugin expo-auth-session do app.json mas manter a dependência instalada para uso no código. O plugin causa erro de sintaxe ES module mas a funcionalidade funciona sem ele.",
+      "priority": "Medium - Resolvido"
+    }
+  ]
+}

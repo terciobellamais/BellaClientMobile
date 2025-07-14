@@ -1,0 +1,53 @@
+{
+  "learnings": [
+    {
+      "insight": "Ícones SVG personalizados devem ser convertidos em componentes React Native SVG",
+      "context": "Tentativa de importar diretamente arquivo SVG causou erro de tipo no TypeScript. React Native não suporta importação direta de SVGs",
+      "application": "Converter SVGs em componentes usando react-native-svg, criando interfaces para props customizáveis (width, height, fill) e usando como JSX no código",
+      "importance": "Essencial para usar ícones personalizados de forma consistente e tipada",
+      "related_components": [
+        "components/icons/HomeIcon.tsx",
+        "components/menu/Menu.tsx",
+        "components/menu/OptionMenu.tsx"
+      ]
+    },
+    {
+      "insight": "Problema de roteamento causando tela '404 - This screen does not exist'",
+      "context": "A aplicação estava mostrando a tela de erro 404 em vez da tela inicial welcome devido a configuração incorreta do roteamento no Expo Router",
+      "application": "Criar arquivo index.tsx na raiz do app com Redirect para /welcome e ajustar a configuração do Stack no _layout.tsx removendo initialRouteName e reorganizando as rotas",
+      "importance": "Crítico para a experiência do usuário - a tela inicial deve funcionar corretamente",
+      "related_components": [
+        "app/_layout.tsx",
+        "app/index.tsx",
+        "app/welcome/index.tsx",
+        "app/+not-found.tsx"
+      ]
+    },
+    {
+      "insight": "Configuração do Expo Router requer estrutura específica de arquivos",
+      "context": "O Expo Router funciona baseado em convenções de arquivos e pastas, onde cada pasta representa uma rota",
+      "application": "Sempre criar um arquivo index.tsx na raiz do app para definir a rota inicial e configurar corretamente o Stack no _layout.tsx",
+      "importance": "Fundamental para o funcionamento da navegação",
+      "related_components": ["app/_layout.tsx", "app/index.tsx"]
+    },
+    {
+      "insight": "Cache do Expo pode causar problemas de roteamento",
+      "context": "Mudanças na estrutura de roteamento podem não ser refletidas imediatamente devido ao cache",
+      "application": "Usar 'npx expo start --clear' para limpar o cache quando houver problemas de roteamento",
+      "importance": "Importante para debugging e desenvolvimento",
+      "related_components": ["Expo development server"]
+    },
+    {
+      "insight": "Estado local useState não funciona para componentes que precisam compartilhar estado",
+      "context": "O hook useMenu estava usando useState local, mas era usado tanto no componente Menu quanto na tela Home. Isso criava instâncias separadas do estado, impedindo a sincronização",
+      "application": "Converter hooks com estado local para React Context API quando o estado precisa ser global. Criar Provider no nível raiz (_layout.tsx) e hook personalizado com validação de contexto",
+      "importance": "Crítico para funcionalidades que dependem de estado compartilhado entre múltiplos componentes",
+      "related_components": [
+        "hooks/useMenu.tsx",
+        "components/menu/Menu.tsx",
+        "app/home/index.tsx",
+        "app/_layout.tsx"
+      ]
+    }
+  ]
+}

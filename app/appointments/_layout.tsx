@@ -1,0 +1,15 @@
+import React from 'react';
+import { Stack } from 'expo-router';
+
+export default function TabLayout() {
+  return (
+    <Stack screenOptions={{
+      headerShown: false,
+      animation: 'none',
+    }}>
+      <Stack.Screen name="index" />
+      <Stack.Screen name="clinicsList" />
+      <Stack.Screen name="makeAppointment" />
+    </Stack>
+  );
+} 

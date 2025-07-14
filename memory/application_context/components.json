@@ -1,0 +1,69 @@
+{
+  "components": [
+    {
+      "name": "HomeIcon",
+      "type": "icon",
+      "path": "components/icons/HomeIcon.tsx",
+      "description": "Ícone SVG personalizado de casa/home usando react-native-svg. Suporta customização de width, height e fill",
+      "dependencies": ["react-native-svg"]
+    },
+    {
+      "name": "OptionMenu",
+      "type": "widget",
+      "path": "components/menu/OptionMenu.tsx",
+      "description": "Item de menu com ícone e título, usado no componente Menu principal",
+      "dependencies": ["CustomFonts"]
+    },
+    {
+      "name": "Menu",
+      "type": "screen_component",
+      "path": "components/menu/Menu.tsx",
+      "description": "Menu lateral da aplicação com opções principais e botão de logout, agora conectado ao estado global do menu",
+      "dependencies": ["OptionMenu", "react-native-paper", "useMenu"]
+    },
+    {
+      "name": "MenuProvider",
+      "type": "context_provider",
+      "path": "hooks/useMenu.tsx",
+      "description": "Provider do React Context para gerenciamento global do estado do menu. Deve ser usado no nível raiz da aplicação",
+      "dependencies": ["React.createContext"]
+    },
+    {
+      "name": "useMenu",
+      "type": "hook",
+      "path": "hooks/useMenu.tsx",
+      "description": "Hook personalizado para acessar o estado global do menu. Fornece isOpen, toggleMenu, openMenu e closeMenu. Deve ser usado dentro do MenuProvider",
+      "dependencies": ["MenuProvider", "React.useContext"]
+    },
+    {
+      "name": "TextInputBella",
+      "type": "input",
+      "path": "components/textInputBella/TextInputBella.tsx",
+      "description": "Input customizado com animação de label flutuante, suporte a tipo password com máscara automática",
+      "dependencies": ["Colors", "Animated"]
+    },
+    {
+      "name": "PhoneInput",
+      "type": "input",
+      "path": "components/textInputBella/PhoneInput.tsx",
+      "description": "Input avançado de telefone com seletor de país e formatação automática em tempo real usando libphonenumber-js AsYouType. Suporta todos os países do mundo com formatação específica e validação inteligente. Inclui modal elegante de seleção de país com bandeiras e códigos de discagem. Exporta função utilitária getCleanPhoneNumber() para extrair apenas números do telefone formatado. Reformata automaticamente números existentes quando país é alterado.",
+      "dependencies": [
+        "Colors",
+        "Animated",
+        "Modal",
+        "FlatList",
+        "TouchableOpacity",
+        "libphonenumber-js",
+        "world-countries",
+        "emoji-flags"
+      ]
+    },
+    {
+      "name": "Button",
+      "type": "button",
+      "path": "components/button/Button.tsx",
+      "description": "Botão customizado com variantes contained/outlined e suporte a cores personalizadas",
+      "dependencies": ["Colors", "CustomFonts"]
+    }
+  ]
+}

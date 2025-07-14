@@ -1,0 +1,49 @@
+{
+  "conversation_history": [
+    {
+      "topic": "Conversão do useMenu para gerenciamento de estado global",
+      "changes": "Convertido hook useMenu de useState local para React Context API. Criado MenuProvider global no _layout.tsx. Atualizado componente Menu e tela Home para usar o novo sistema. Adicionadas validações de contexto e tipagem TypeScript completa.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Correção de erros críticos iOS e configuração Google Sign-in",
+      "changes": "Resolvido erro 'RNGoogleSignin could not be found' adicionando URL scheme correto no Info.plist. Corrigido warnings de rotas sem default export no app/index.tsx. Reinstalação completa dos pods iOS para resolver conflitos de dependências. Todos os módulos nativos agora registrados corretamente.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Correção do erro de autenticação Google OAuth",
+      "changes": "Corrigido URL scheme, redirect URI, implementado tratamento de response OAuth e navegação automática",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Execução do projeto no simulador iOS",
+      "changes": "Removido plugin expo-auth-session problemático, limpado cache, reinstalado dependências e executado yarn ios com sucesso",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Implementação do componente de input de telefone",
+      "changes": "Criado componente PhoneInput especializado com formatação automática para telefone brasileiro (+55 (XX) 9XXXX-XXXX). Reutilizado padrão do TextInputBella existente. Atualizado tela addPhone/index.tsx com PhoneInput, Button e layout responsivo. Seguido princípios de clean code e reusabilidade máxima.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Implementação de PhoneInput com seletor de país internacional",
+      "changes": "Reescrito PhoneInput completamente para incluir seletor de país com modal elegante. Adicionado suporte a 8 países (Brasil, EUA, Argentina, Chile, Colômbia, México, Peru, Uruguai) com formatação específica para cada país. Implementado componente com bandeiras, códigos de discagem e máscaras adaptáveis. Exportado interface Country e array countries para reutilização. Adicionada validação de telefone e botão inteligente.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Implementação de formatação em tempo real do número de telefone",
+      "changes": "Implementada formatação automática em tempo real no PhoneInput usando AsYouType da libphonenumber-js. Criada função utilitária getCleanPhoneNumber() para extrair números limpos. Aprimorado comportamento de troca de país para reformatar números existentes. Melhorada validação usando isPossible() para melhor UX. Removido código inválido e console.logs desnecessários.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Habilitação de comunicação HTTP no iOS e implementação de logs de debug",
+      "changes": "Modificado Info.plist para permitir conexões HTTP alterando NSAllowsArbitraryLoads para true. Implementado sistema completo de logs de debug no useBellaFetcher com monitoramento de requests, responses e erros. Adicionado try-catch para tratamento de erros de rede. Reinstalado pods iOS e rebuilded projeto para aplicar configurações. App agora pode se comunicar com servidor HTTP e fornece logs detalhados para troubleshooting.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Correção do problema de console.log não sendo exibido no useAuth",
+      "changes": "Identificado e corrigido problema de duplo consumo do response.json() na função loginUser. Removida segunda chamada de response.json() e reutilizada variável 'teste' que já continha dados parseados. Corrigido erro que impedia execução do console.log('teste', teste) por interrupção da execução devido ao erro de stream já consumido.",
+      "timestamp": "2024-12-19"
+    }
+  ]
+}
