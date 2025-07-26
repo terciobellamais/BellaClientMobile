@@ -17,10 +17,12 @@
       }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "bundler": "eas"
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "bundler": "eas"
     }
   },
   "submit": {

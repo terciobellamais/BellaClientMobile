@@ -5,7 +5,7 @@ import HomeHeader from "@/components/homeHeader/HomeHeader";
 import Colors from "@/constants/Colors";
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, Text } from "react-native";
-// import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
 import AppointmentButton from "@/components/appointmentsList/AppointmentButton";
 import Menu from "@/components/menu/Menu";
 import useMenu from "@/hooks/useMenu";

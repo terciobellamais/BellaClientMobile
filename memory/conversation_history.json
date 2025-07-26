@@ -49,6 +49,21 @@
       "topic": "Criação do repositório Git e commit inicial",
       "changes": "Criado repositório Git local com commit inicial completo. Adicionados todos os arquivos do projeto (188 arquivos modificados, 16.533 inserções). Commit realizado com mensagem descritiva incluindo funcionalidades implementadas: sistema de autenticação com Google OAuth, estrutura de navegação, agendamento de consultas, sistema de check-in, verificação de telefone, componentes UI modernos, configurações Android/iOS e sistema de memória para gerenciamento de contexto.",
       "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Publicação da branch master no GitHub",
+      "changes": "Criado repositório público no GitHub (terciobellamais/BellaClientMobile) usando GitHub CLI. Configurado remote origin com SSH. Realizado push da branch master com 291 objetos (2.45 MiB). Branch master configurada para tracking com origin/master. Repositório disponível em https://github.com/terciobellamais/BellaClientMobile. Projeto agora está disponível publicamente para colaboração e deployment.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Resolução completa de crashes e problemas de build iOS",
+      "changes": "Resolvido crash GADApplicationVerifyPublisherInitializedCorrectly removendo react-native-google-mobile-ads. Solucionado problema Metro bundler (unsanitizedScriptURLString null) através de rebuild completo. Atualizadas dependências Expo. App Bella agora roda perfeitamente no simulador iOS sem crashes. Build e execução bem-sucedidos.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Correção do erro 'No script URL provided' no IPA build de produção",
+      "changes": "Identificado e corrigido problema de bundle JavaScript não sendo incluído no IPA build. Alterado jsEngine para 'hermes', desabilitado newArchEnabled, configurado bundler EAS adequadamente, criado metro.config.js otimizado, e atualizado Podfile.properties.json. Configurações corrigidas garantem que main.jsbundle seja incluído no build de produção.",
+      "timestamp": "2024-12-19"
     }
   ]
 }

@@ -5,7 +5,7 @@ import BellaTextInput from "@/components/textInput/TextInput";
 import Colors from "@/constants/Colors";
 import useAddPhone from "@/hooks/useAddPhone";
 import useAuth from "@/hooks/useAuth";
-import { useRouter } from "expo-router";
+import { CommonActions, useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import {
   Alert,
@@ -35,9 +35,9 @@ type LoginProps = {
 }
 
 export default function LoginScreen() {
-  const router = useRouter();
+  const router = useNavigation();
   const { loginUser, loginWithGoogle } = useAuth();
-  const { handleIsPhoneVerified } = useAddPhone();  
+  const { handleIsPhoneVerified } = useAddPhone();
 
   const [login, setLogin] = useState<LoginProps>({
     email: '',
@@ -57,15 +57,22 @@ export default function LoginScreen() {
     const isPhoneVerified = await handleIsPhoneVerified();
 
     if (!isPhoneVerified.success) {
-      router.push('/addPhone');
+      router.navigate('addPhone' as never);
       return;
     }
 
-    if (response) {
-      if (isPhoneVerified.success) router.push('/home');
-      else router.push('/addPhone');
+    if (!response) {
+      console.log('error TT', response);
+      Alert.alert('Erro', 'Erro ao fazer login.');
+      return;
     }
-    else Alert.alert('Erro', 'Erro ao fazer login.');
+
+    router.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: "home" as never }],
+      }),
+    );
   }
 
   const loginExternal = (type: LoginExternal) => {
@@ -83,7 +90,7 @@ export default function LoginScreen() {
   const handleLoginGoogle = async () => {
     const success = await loginWithGoogle();
     if (success) {
-      router.push('/home');
+      router.navigate('home' as never);
     }
   }
 

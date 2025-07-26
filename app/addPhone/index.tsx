@@ -1,14 +1,14 @@
+import Alert from "@/components/alert/Alert";
 import Button from "@/components/button/Button";
 import fonts from "@/components/CustomFonts";
 import Header from "@/components/header/Header";
+import CodeInput from "@/components/textInputBella/CodeInput";
 import PhoneInput, { Country, countries } from "@/components/textInputBella/PhoneInput";
 import Colors from "@/constants/Colors";
+import useAddPhone from "@/hooks/useAddPhone";
 import { router } from "expo-router";
 import { useCallback, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import CodeInput from "@/components/textInputBella/CodeInput";
-import useAddPhone from "@/hooks/useAddPhone";
-import Alert from "@/components/alert/Alert";
 
 export default function AddPhone() {
   const [phone, setPhone] = useState("");
@@ -48,7 +48,7 @@ export default function AddPhone() {
     if (!code.trim()) return;
 
     const response = await handleVerifyCode(fullPhone, code);
-    
+
     setError(!response.success);
 
     if (!response.success) return;

@@ -1,17 +1,18 @@
 import { BELLA_TOKEN } from "@/api/constants";
 import { login, register } from "@/api/paths";
 import useBellaFetcher from "@/api/useBellaFetcher";
-import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { LoginUser, RegisterUser, TokenValidated } from "./@types/Auth.type";
 import useAuthGoogle from "./useAuthGoogle";
 import useStorage from "./useStorage";
+import { CommonActions, useNavigation } from "@react-navigation/native";
 
 const useAuth = () => {
   const { fetcher } = useBellaFetcher();
   const { setItem, getItem, removeItem } = useStorage(BELLA_TOKEN);
   const [token, setToken] = useState<string | null>(null);
   const { signIn: signInGoogle } = useAuthGoogle();
+  const router = useNavigation();
 
   useEffect(() => {
     const getToken = async () => {
@@ -106,7 +107,12 @@ const useAuth = () => {
 
   const logoutUser = async () => {
     await removeItem();
-    router.push('/welcome');
+    router.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: "welcome" as never }],
+      }),
+    );
   }
 
   return {

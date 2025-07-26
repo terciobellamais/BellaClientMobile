@@ -21,7 +21,7 @@ export default function Register() {
   }
 
   const handleLogin = () => {
-    router.push('/login');
+    router.replace('/login');
   }
 
   const handleRegister = () => {

@@ -7,23 +7,25 @@
     "icon": "./assets/images/splash-icon.png",
     "scheme": "com.bellaclient.app",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
-    "jsEngine": "jsc",
+    "newArchEnabled": false,
+    "jsEngine": "hermes",
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "backgroundColor": "#FF8373",
       "imageWidth": 10
     },
+    
     "plugins": [
       "expo-router",
       "expo-font",
       "@react-native-google-signin/google-signin"
     ],
+
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.bellaclient.app",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/splash-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#FF8373"
       },
       "infoPlist": {
@@ -35,6 +37,7 @@
         ]
       }
     },
+
     "android": {
       "compileSdkVersion": 33,
       "adaptiveIcon": {
@@ -43,23 +46,19 @@
       },
       "package": "com.googleauth.bella",
       "versionCode": 1,
-      "permissions": [
-        "INTERNET",
-        "ACCESS_NETWORK_STATE",
-        "com.google.android.gms.permission.AD_ID"
-      ]
+      "permissions": ["INTERNET", "ACCESS_NETWORK_STATE"]
     },
-    "react-native-google-mobile-ads": {
-      "android_app_id": "ca-app-pub-3940256099942544~3347511713"
-    },
+
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+    
     "experiments": {
       "typedRoutes": true
     },
+
     "extra": {
       "router": {
         "origin": false

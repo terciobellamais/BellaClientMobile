@@ -9,9 +9,9 @@ export default function Index() {
   useEffect(() => {
     const validate = async () => {
       const response = await validateTokenUser();
-      if (response) return router.push('/home');
+      if (response) return router.replace('/home');
 
-      router.push('/welcome');
+      router.replace('/welcome');
     }
     validate();
   }, []);

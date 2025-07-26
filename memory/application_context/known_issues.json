@@ -41,6 +41,31 @@
       ],
       "workaround": "Remover plugin expo-auth-session do app.json mas manter a dependência instalada para uso no código. O plugin causa erro de sintaxe ES module mas a funcionalidade funciona sem ele.",
       "priority": "Medium - Resolvido"
+    },
+    {
+      "description": "Crash EXC_CRASH (SIGABRT) em GADApplicationVerifyPublisherInitializedCorrectly - Google Mobile Ads não configurado para iOS",
+      "affected_components": [
+        "react-native-google-mobile-ads",
+        "package.json",
+        "app.json",
+        "iOS build process",
+        "AndroidManifest.xml"
+      ],
+      "workaround": "Removida biblioteca react-native-google-mobile-ads completamente do projeto: dependência do package.json, configuração do app.json, permissão AD_ID do AndroidManifest.xml, imports comentados do código, e reinstalados os pods do iOS.",
+      "priority": "High - Resolvido"
+    },
+    {
+      "description": "Erro 'No script URL provided' e 'unsanitizedScriptURLString = (null)' no IPA build de produção",
+      "affected_components": [
+        "ios/Bella/AppDelegate.swift",
+        "app.json",
+        "eas.json",
+        "metro.config.js",
+        "ios/Podfile.properties.json",
+        "EAS build process"
+      ],
+      "workaround": "Corrigir configurações para build de produção: alterar jsEngine para 'hermes', desabilitar newArchEnabled, configurar bundler: 'eas' no eas.json, criar metro.config.js otimizado, atualizar Podfile.properties.json, e reinstalar pods iOS. Isso garante que o main.jsbundle seja incluído no IPA.",
+      "priority": "High - Em Resolução"
     }
   ]
 }
