@@ -11,7 +11,7 @@ PODS:
     - ExpoModulesCore
   - EXConstants (17.1.7):
     - ExpoModulesCore
-  - Expo (53.0.19):
+  - Expo (53.0.20):
     - DoubleConversion
     - ExpoModulesCore
     - glog
@@ -53,9 +53,9 @@ PODS:
     - ExpoModulesCore
   - ExpoHaptics (14.1.4):
     - ExpoModulesCore
-  - ExpoHead (5.1.3):
+  - ExpoHead (5.1.4):
     - ExpoModulesCore
-  - ExpoImage (2.3.2):
+  - ExpoImage (2.4.0):
     - ExpoModulesCore
     - libavif/libdav1d
     - SDWebImage (~> 5.21.0)
@@ -68,7 +68,7 @@ PODS:
     - ExpoModulesCore
   - ExpoLinking (7.1.7):
     - ExpoModulesCore
-  - ExpoModulesCore (2.4.2):
+  - ExpoModulesCore (2.5.0):
     - DoubleConversion
     - glog
     - RCT-Folly (= 2024.11.18.00)
@@ -103,13 +103,10 @@ PODS:
   - FBLazyVector (0.79.5)
   - fmt (11.0.2)
   - glog (0.3.5)
-  - Google-Mobile-Ads-SDK (12.4.0):
-    - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleSignIn (7.1.0):
     - AppAuth (< 2.0, >= 1.7.3)
     - GTMAppAuth (< 5.0, >= 4.1.1)
     - GTMSessionFetcher/Core (~> 3.3)
-  - GoogleUserMessagingPlatform (3.0.0)
   - GTMAppAuth (4.1.1):
     - AppAuth/Core (~> 1.7)
     - GTMSessionFetcher/Core (< 4.0, >= 3.3)
@@ -1821,31 +1818,6 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNGoogleMobileAds (15.4.0):
-    - DoubleConversion
-    - glog
-    - Google-Mobile-Ads-SDK (= 12.4.0)
-    - GoogleUserMessagingPlatform (= 3.0.0)
-    - RCT-Folly (= 2024.11.18.00)
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsc
-    - React-jsi
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - Yoga
   - RNGoogleSignin (14.0.1):
     - DoubleConversion
     - glog
@@ -2194,7 +2166,6 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
-  - RNGoogleMobileAds (from `../node_modules/react-native-google-mobile-ads`)
   - "RNGoogleSignin (from `../node_modules/@react-native-google-signin/google-signin`)"
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -2204,9 +2175,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AppAuth
-    - Google-Mobile-Ads-SDK
     - GoogleSignIn
-    - GoogleUserMessagingPlatform
     - GTMAppAuth
     - GTMSessionFetcher
     - libavif
@@ -2401,8 +2370,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
-  RNGoogleMobileAds:
-    :path: "../node_modules/react-native-google-mobile-ads"
   RNGoogleSignin:
     :path: "../node_modules/@react-native-google-signin/google-signin"
   RNReanimated:
@@ -2420,7 +2387,7 @@ SPEC CHECKSUMS:
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
   EXApplication: 1e06972201838375ca1ec1ba34d586a98a5dc718
   EXConstants: 98bcf0f22b820f9b28f9fee55ff2daededadd2f8
-  Expo: 3bcfab2b6b907710dd5d6582406d936dcb5b5905
+  Expo: ad449665420b9fe5e907bd97e79aec2e47f98785
   ExpoAdapterGoogleSignIn: b48e2797d1b090bd284b32ecb0de8f4a7bc45b13
   ExpoAsset: ef06e880126c375f580d4923fdd1cdf4ee6ee7d6
   ExpoBlur: 3c8885b9bf9eef4309041ec87adec48b5f1986a9
@@ -2428,12 +2395,12 @@ SPEC CHECKSUMS:
   ExpoFileSystem: 7f92f7be2f5c5ed40a7c9efc8fa30821181d9d63
   ExpoFont: cf508bc2e6b70871e05386d71cab927c8524cc8e
   ExpoHaptics: 0ff6e0d83cd891178a306e548da1450249d54500
-  ExpoHead: 9efbc31e85b2a6b3df1fcbd7595659873bb06c81
-  ExpoImage: 785f7673cfecd97045cf333fd6486b57ccab4b71
+  ExpoHead: a7b66cbaeeb51f4a85338d335a0f5467e29a2c90
+  ExpoImage: e4102c93d1dbe99ff54b075452d1bc9d6ec21b7c
   ExpoKeepAwake: bf0811570c8da182bfb879169437d4de298376e7
   ExpoLinearGradient: 7734c8059972fcf691fb4330bcdf3390960a152d
   ExpoLinking: d5c183998ca6ada66ff45e407e0f965b398a8902
-  ExpoModulesCore: a7f0dd464f5beb388686c9b8e4f0785a5018f592
+  ExpoModulesCore: 2c1a84ec154d32afb4f6569bc558f059ebbcdb8e
   ExpoSplashScreen: 0ad5acac1b5d2953c6e00d4319f16d616f70d4dd
   ExpoSymbols: c5612a90fb9179cdaebcd19bea9d8c69e5d3b859
   ExpoSystemUI: c2724f9d5af6b1bb74e013efadf9c6a8fae547a2
@@ -2442,9 +2409,7 @@ SPEC CHECKSUMS:
   FBLazyVector: d2a9cd223302b6c9aa4aa34c1a775e9db609eb52
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
-  Google-Mobile-Ads-SDK: db00a3836f288f94e52114f312b56fe066699d82
   GoogleSignIn: d4281ab6cf21542b1cfaff85c191f230b399d2db
-  GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
   GTMAppAuth: f69bd07d68cd3b766125f7e072c45d7340dea0de
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
   libavif: 84bbb62fb232c3018d6f1bab79beea87e35de7b7
@@ -2515,7 +2480,6 @@ SPEC CHECKSUMS:
   ReactCommon: 7eb76fcd5133313d8c6a138a5c7dd89f80f189d5
   RNCAsyncStorage: 2c0b1326c74baf026f4a8e5e7552ac9f8525aa94
   RNGestureHandler: 6bf8b210cbad95ced45f3f9b8df05924b3a97300
-  RNGoogleMobileAds: 60f4ac10e2eea08ab9ea49d045923d540c6cc16d
   RNGoogleSignin: d51de624a876bd52b59662e59ac3370c2345739f
   RNReanimated: 79c239f5562adcf2406b681830f716f1e7d76081
   RNScreens: dd9a329b21412c5322a5447fc2c3ae6471cf6e5a
