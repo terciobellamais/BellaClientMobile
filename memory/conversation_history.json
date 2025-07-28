@@ -64,6 +64,16 @@
       "topic": "Correção do erro 'No script URL provided' no IPA build de produção",
       "changes": "Identificado e corrigido problema de bundle JavaScript não sendo incluído no IPA build. Alterado jsEngine para 'hermes', desabilitado newArchEnabled, configurado bundler EAS adequadamente, criado metro.config.js otimizado, e atualizado Podfile.properties.json. Configurações corrigidas garantem que main.jsbundle seja incluído no build de produção.",
       "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Resolução dos erros de configuração do Hermes engine no iOS",
+      "changes": "Resolvidos erros 'Unable to open base configuration reference file' para hermes-engine, React-hermes e React-RuntimeHermes. Realizada limpeza completa de cache iOS (Pods, Podfile.lock, DerivedData, node_modules/.cache) seguida de reinstalação dos pods com --repo-update. Build iOS compilado com sucesso, Hermes engine funcionando perfeitamente, aplicativo rodando no simulador sem erros.",
+      "timestamp": "2024-12-19"
+    },
+    {
+      "topic": "Resolução de erros de build iOS relacionados a target inconsistency e PhaseScriptExecution",
+      "changes": "Resolvidos erros 'Internal inconsistency error: never received target ended message for target ID 53 (React-RCTSettings)' e 'Command PhaseScriptExecution failed'. Aplicada limpeza completa de cache iOS: removidos Pods/Podfile.lock, limpo DerivedData do Xcode, removido node_modules/.cache, reinstalados pods com --repo-update. Build iOS compilado com 100% de sucesso, app executando perfeitamente no simulador iPhone 16 Pro. 100 dependências e 110 pods instalados corretamente.",
+      "timestamp": "2024-12-19"
     }
   ]
 }

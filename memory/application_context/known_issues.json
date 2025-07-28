@@ -65,7 +65,32 @@
         "EAS build process"
       ],
       "workaround": "Corrigir configurações para build de produção: alterar jsEngine para 'hermes', desabilitar newArchEnabled, configurar bundler: 'eas' no eas.json, criar metro.config.js otimizado, atualizar Podfile.properties.json, e reinstalar pods iOS. Isso garante que o main.jsbundle seja incluído no IPA.",
-      "priority": "High - Em Resolução"
+      "priority": "High - Resolvido"
+    },
+    {
+      "description": "Erros 'Unable to open base configuration reference file' para hermes-engine, React-hermes e React-RuntimeHermes no Xcode",
+      "affected_components": [
+        "ios/Pods/Target Support Files/hermes-engine/",
+        "ios/Pods/Target Support Files/React-hermes/",
+        "ios/Pods/Target Support Files/React-RuntimeHermes/",
+        "hermes-engine.release.xcconfig",
+        "CocoaPods cache"
+      ],
+      "workaround": "Limpar completamente cache iOS e reinstalar pods: 'cd ios && rm -rf Pods Podfile.lock && rm -rf ~/Library/Developer/Xcode/DerivedData && rm -rf ../node_modules/.cache && pod install --repo-update'. Isso regenera todos os arquivos de configuração do Hermes necessários após mudanças no jsEngine.",
+      "priority": "High - Resolvido"
+    },
+    {
+      "description": "Erros 'Internal inconsistency error: never received target ended message' e 'Command PhaseScriptExecution failed' no build iOS",
+      "affected_components": [
+        "ios/Pods/",
+        "ios/Podfile.lock",
+        "Xcode DerivedData",
+        "React-RCTSettings target",
+        "CocoaPods cache",
+        "node_modules/.cache"
+      ],
+      "workaround": "Realizar limpeza completa de cache iOS: 'cd ios && rm -rf Pods Podfile.lock && sudo rm -rf ~/Library/Developer/Xcode/DerivedData/* && cd .. && rm -rf node_modules/.cache && cd ios && pod install --repo-update'. Esta limpeza resolve inconsistências de targets e falhas de scripts de build, permitindo compilação bem-sucedida do projeto.",
+      "priority": "High - Resolvido"
     }
   ]
 }

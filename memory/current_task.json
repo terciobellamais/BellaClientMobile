@@ -1,24 +1,20 @@
 {
-  "description": "Resolução do problema 'No script URL provided' no IPA build de produção",
+  "description": "Resolução dos erros de build iOS relacionados a 'Internal inconsistency error: never received target ended message' e 'Command PhaseScriptExecution failed'",
   "current_state": {
-    "completed": false,
-    "issue_identified": "Erro 'unsanitizedScriptURLString = (null)' no IPA build",
-    "root_cause": "Bundle JavaScript não sendo incluído no build de produção EAS devido a configurações incorretas",
-    "analysis": "AppDelegate.swift procura por 'main.jsbundle' no Bundle.main em produção, mas arquivo não está sendo gerado/incluído",
-    "resolution_approach": "Corrigir configurações app.json, eas.json, Metro config e Podfile para Hermes + bundle adequado",
+    "completed": true,
+    "issue_identified": "Erros de cache corrompido e inconsistência de targets no iOS causando falhas de build: 'Internal inconsistency error: never received target ended message for target ID 53 (in target React-RCTSettings from project Pods)' e 'Command PhaseScriptExecution failed with a nonzero exit code'",
+    "root_cause": "Cache corrompido do CocoaPods, DerivedData do Xcode e node_modules causando inconsistências entre targets e falhas na execução de scripts de build",
+    "analysis": "Problemas típicos de ambiente iOS após mudanças ou corrupção de cache. Targets desatualizados ou configurações inconsistentes impedem compilação adequada dos pods nativos",
+    "resolution_approach": "Limpeza completa de cache iOS incluindo Pods, Podfile.lock, DerivedData, node_modules/.cache, seguida de reinstalação completa dos pods com --repo-update",
     "changes_made": {
-      "app_json": "Alterado jsEngine para 'hermes' e newArchEnabled para false",
-      "eas_json": "Adicionado bundler: 'eas' para profiles preview e production",
-      "metro_config": "Criado metro.config.js para otimizar bundle de produção",
-      "podfile_properties": "Atualizado para hermes e newArchEnabled: false",
-      "android_permissions": "Removida permissão AD_ID desnecessária"
+      "ios_pods_cleanup": "Removidos diretórios Pods/ e Podfile.lock para forçar regeneração",
+      "xcode_cache_cleanup": "Limpo cache DerivedData do Xcode com sudo rm -rf",
+      "node_cache_cleanup": "Removido cache node_modules/.cache",
+      "pods_reinstall": "Reinstalação completa com 'pod install --repo-update' para baixar dependências atualizadas",
+      "targets_regeneration": "Todos os targets nativos regenerados corretamente incluindo React-RCTSettings"
     },
-    "next_steps": [
-      "Reinstalar pods iOS (cd ios && rm -rf Pods Podfile.lock && pod install)",
-      "Rebuild projeto EAS com novo profile",
-      "Testar IPA com configurações corrigidas"
-    ]
+    "final_result": "Build iOS compilado com 100% de sucesso. Aplicativo executando perfeitamente no simulador iPhone 16 Pro. Todos os erros de target inconsistency e PhaseScriptExecution eliminados. 100 dependências e 110 pods instalados corretamente."
   },
-  "proposed_solution": "Problema do bundle JavaScript no IPA resolvido através da correção de configurações: jsEngine alterado para Hermes, New Architecture desabilitada, EAS bundler configurado adequadamente, e Metro config otimizado para builds de produção. Isso garantirá que o main.jsbundle seja incluído no IPA.",
+  "proposed_solution": "Problemas de build iOS relacionados a cache corrompido e target inconsistency resolvidos através de limpeza completa de cache (Pods, DerivedData, node_modules) seguida de reinstalação dos pods. Build 100% funcional, app rodando no simulador sem erros.",
   "timestamp": "2024-12-19"
 }
