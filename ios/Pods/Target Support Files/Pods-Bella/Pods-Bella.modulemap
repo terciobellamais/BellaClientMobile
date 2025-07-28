@@ -1,6 +1,0 @@
-module Pods_Bella {
-  umbrella header "Pods-Bella-umbrella.h"
-
-  export *
-  module * { export * }
-}
